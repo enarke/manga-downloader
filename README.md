@@ -1,2 +1,2 @@
 manga downloader
-task to download mangas from manga freak
+task to download manga's from manga freak

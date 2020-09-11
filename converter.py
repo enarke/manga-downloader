@@ -11,7 +11,7 @@ from PIL import Image
 
 a=[]
 b=[]
-for subdir, dirs, files in os.walk(os.getcwd()):
+for subdir, dirs, files in os.walk(json.load(open('file.json'))["path"]):
     for file in files:
         #print os.path.join(subdir, file)
         filepath = subdir + os.sep + file
@@ -38,6 +38,5 @@ for subdir, dirs, files in os.walk(os.getcwd()):
                             os.remove(filepath)
                     except :
                         b.append(filepath.split('\\')[-1].replace(".zip",""))
-                        
 print("zero size manga chapters",a)
 print("corrupted manga chapters",b)
