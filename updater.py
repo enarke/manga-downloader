@@ -7,7 +7,7 @@ Created on Thu Sep 10 21:48:39 2020
 import os,requests,threading,json
 a={}
 config =json.load(open('config.json'))
-for subdir, dirs, files in os.walk(os.getcwd()):
+for subdir, dirs, files in os.walk(config["path"]):
     for file in files:
         filepath = subdir + os.sep + file
         if filepath.endswith(".pdf"):

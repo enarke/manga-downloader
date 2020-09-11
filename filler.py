@@ -4,10 +4,10 @@ Created on Thu Sep 10 17:56:38 2020
 
 @author: naram
 """
-import os
+import os,json
 import requests
 a={}
-for subdir, dirs, files in os.walk(json.load(open('file.json'))["path"]):
+for subdir, dirs, files in os.walk(json.load(open('config.json'))["path"]):
     for file in files:
         filepath = subdir + os.sep + file
         if filepath.endswith(".pdf"):
@@ -24,7 +24,7 @@ for i in a:
         if j not in a[i]:
             b[i].append(j)
 
-path=json.load(open('file.json'))["path"]+"\\"+json.load(open('file.json'))["dummy"]
+path=json.load(open('config.json'))["path"]+"\\"+json.load(open('config.json'))["dummy"]
 if not os.path.isdir(path):
     os.mkdir(path)
 for i in b:
@@ -37,4 +37,4 @@ for i in b:
         if len(r.content)>1:
             with open(path+"\\"+i+"_"+str(j)+'.zip', "wb") as zip:
                 zip.write(r.content)
-            print(i,"Done")
+            print(i,j,"Done")

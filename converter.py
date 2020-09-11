@@ -5,13 +5,13 @@ Created on Wed Sep  9 15:25:56 2020
 @author: naram
 """
 import os
-import zipfile
+import zipfile,json
 import shutil
 from PIL import Image
 
 a=[]
 b=[]
-for subdir, dirs, files in os.walk(json.load(open('file.json'))["path"]):
+for subdir, dirs, files in os.walk(json.load(open('config.json'))["path"]):
     for file in files:
         #print os.path.join(subdir, file)
         filepath = subdir + os.sep + file
